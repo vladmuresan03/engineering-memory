@@ -27,5 +27,5 @@ In Portainer, create a Git-backed stack from this repository with
 `nginx-proxy-manager_default` network; set `PROXY_NETWORK` if your proxy uses a
 different network. The Compose file publishes no host port. In Nginx Proxy
 Manager, route `engineeringmemory.dev` to `http://engineering-memory-site:8175`
-and configure its HTTPS certificate there. Redeploy the stack with image
-re-pull after a new image is published.
+and request its HTTPS certificate there. Leave **Force SSL** off. Redeploy the
+stack with image re-pull after a new image is published.
