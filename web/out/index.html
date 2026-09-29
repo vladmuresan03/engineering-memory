@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eaf4fb">
+  <meta name="description" content="A local, open-source record of engineering decisions, reasons, attempts, and outcomes. Retrieve source IDs, timestamps, and current state for people and coding agents.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Engineering Memory — Why is it built this way?">
+  <meta property="og:description" content="A local record of engineering decisions, attempts, and outcomes, with their sources and revisions.">
+  <meta property="og:url" content="https://engineeringmemory.dev/">
+  <link rel="canonical" href="https://engineeringmemory.dev/">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+  <title>Engineering Memory — Why is it built this way?</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Engineering Memory home">
+        <span class="brand-mark" aria-hidden="true">em<span class="brand-dot"></span></span>
+        <span>Engineering Memory</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#how-it-works">How it works</a>
+        <a href="#principles">Principles</a>
+        <a href="https://github.com/vladmuresan03/engineering-memory">GitHub</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section-wrap" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> OPEN SOURCE <span class="eyebrow-sep">/</span> LOCAL FIRST <span class="eyebrow-sep">/</span> ALPHA</div>
+          <h1 id="hero-title">Why is it<br><em>built this way?</em></h1>
+          <p class="hero-lead">The answer may be in a PR, an incident note, or a decision made weeks earlier. Engineering Memory stores those records with their origins and connects them to what happened next. People and coding agents can query the same local memory.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://github.com/vladmuresan03/engineering-memory">View on GitHub <svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M7 5h8v8"/></svg></a>
+            <a class="button button-quiet" href="#example">Explore an example <svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M10 3v13m-5-5 5 5 5-5"/></svg></a>
+          </div>
+          <p class="hero-note">Runs locally with SQLite. GitHub import is optional.</p>
+        </div>
+
+        <div class="hero-graphic" aria-hidden="true">
+          <div class="graphic-label graphic-label-top">THE QUESTION</div>
+          <div class="graphic-question">Why did we choose<br><strong>SQLite?</strong></div>
+          <div class="graphic-thread">
+            <div class="thread-node thread-node-one"><span>01</span><b>DECISION</b><p>Use SQLite for the local MVP</p></div>
+            <div class="thread-node thread-node-two"><span>02</span><b>RATIONALE</b><p>One file keeps setup simple</p></div>
+            <div class="thread-node thread-node-three"><span>03</span><b>PROVENANCE</b><p>Direct note · source retained</p></div>
+          </div>
+          <div class="graphic-foot">One example: a decision and the reason recorded with it.</div>
+        </div>
+      </section>
+
+      <section class="demo-section" id="example" aria-labelledby="demo-title">
+        <div class="section-wrap demo-grid">
+          <div class="section-intro">
+            <span class="section-index">01 / THE MEMORY PACKET</span>
+            <h2 id="demo-title">A result should<br><em>cite its record.</em></h2>
+            <p>The local retriever returns a short context packet with source IDs, state, capture time, and related records. Select a question to inspect an illustrative packet.</p>
+            <div class="demo-options" role="group" aria-label="Example questions">
+              <button class="question-button is-active" type="button" data-example="sqlite" aria-pressed="true"><span>01</span> Why SQLite?</button>
+              <button class="question-button" type="button" data-example="queue" aria-pressed="false"><span>02</span> What replaced Redis?</button>
+              <button class="question-button" type="button" data-example="retries" aria-pressed="false"><span>03</span> What did we learn from retries?</button>
+            </div>
+            <p class="demo-disclaimer">These are fictional records. This page does not run a live query.</p>
+          </div>
+          <div class="packet" aria-live="polite">
+            <div class="packet-topline"><span><span class="packet-indicator" aria-hidden="true"></span> CONTEXT ASSEMBLY</span><span>EXAMPLE OUTPUT</span></div>
+            <p class="packet-query" id="packet-query">Why SQLite?</p>
+            <div id="packet-items">
+              <article class="evidence-card">
+                <div class="evidence-head"><span class="kind kind-decision">DECISION</span><span class="evidence-state">CURRENT</span></div>
+                <h3>Use SQLite for the local MVP</h3>
+                <p>One local database keeps the first release easy to run and inspect.</p>
+                <div class="evidence-meta"><div>SOURCE ID: manual:demo-sqlite <span>·</span> DIRECT NOTE</div><div>CAPTURED: 2026-09-20 <span>·</span> UNATTRIBUTED</div></div>
+              </article>
+              <article class="evidence-card evidence-card-linked">
+                <div class="evidence-head"><span class="kind kind-rationale">RATIONALE</span><span class="evidence-relation">SAME SOURCE</span></div>
+                <p>A single file keeps setup and backups simple for a local prototype.</p>
+                <div class="evidence-meta"><div>SOURCE ID: manual:demo-sqlite <span>·</span> DIRECT NOTE</div><div>CAPTURED: 2026-09-20 <span>·</span> UNATTRIBUTED</div></div>
+              </article>
+            </div>
+            <div class="packet-footer"><span>Every entry keeps its origin and state.</span><svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 3v8a4 4 0 0 0 4 4h8m-4-4 4 4-4 4"/></svg></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="model-section section-wrap" id="how-it-works" aria-labelledby="model-title">
+        <div class="model-heading">
+          <div><span class="section-index">02 / THE MODEL</span><h2 id="model-title">Store the source.<br>Index the claim.</h2></div>
+          <p>The index uses six kinds: Event, Change, Decision, Rationale, Attempt, and Outcome. A record keeps its original text; links between records are explicit.</p>
+        </div>
+        <div class="flow" aria-label="Capture, connect, and retrieve">
+          <article class="flow-card"><span class="flow-num">01</span><div class="flow-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 32 32" focusable="false"><path d="M8 3h11l5 5v19H8a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3Z"/><path d="M19 3v6h5M15 14v9m-4.5-4.5h9"/></svg></div><h3>Capture</h3><p>Enter a decision directly or import an artifact. Keep the source ID, reference, times, and claimed author.</p></article>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <article class="flow-card"><span class="flow-num">02</span><div class="flow-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 32 32" focusable="false"><path d="M10 9h12M9 12l5 9m9-9-5 9"/><circle cx="7" cy="9" r="3"/><circle cx="25" cy="9" r="3"/><circle cx="16" cy="24" r="3"/></svg></div><h3>Connect</h3><p>Link a reason to a decision, an attempt to an outcome, or a correction to the note it replaces.</p></article>
+          <div class="flow-connector" aria-hidden="true"></div>
+          <article class="flow-card"><span class="flow-num">03</span><div class="flow-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 32 32" focusable="false"><rect x="4" y="4" width="18" height="22" rx="2"/><path d="M8 10h10M8 15h7M8 20h5"/><circle cx="22" cy="22" r="5"/><path d="m26 26 3 3"/></svg></div><h3>Retrieve</h3><p>Send an MCP client a bounded packet, including current state and the ID of each source record.</p></article>
+        </div>
+      </section>
+
+      <section class="contrast-section" id="why-it-exists" aria-labelledby="contrast-title">
+        <div class="section-wrap contrast-grid">
+          <div>
+            <span class="section-index">03 / WHY IT EXISTS</span>
+            <h2 id="contrast-title">A commit is evidence.<br><em>It isn't the whole timeline.</em></h2>
+          </div>
+          <div class="contrast-content">
+            <p>Commits and pull requests often contain valuable rationale. They are worth keeping as sources. Decisions can predate code changes, while failed attempts and observed outcomes may arrive later.</p>
+            <div class="compare-row"><span>Git + GitHub</span><strong>Code evidence, reviews, and some of the why</strong></div>
+            <div class="compare-row"><span>Engineering Memory</span><strong>Decisions, attempts, and outcomes connected across sources</strong></div>
+            <p class="contrast-note">The memory can point to a commit or PR and connect it to a note, document, incident, or conversation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="principle-section section-wrap" id="principles" aria-labelledby="principle-title">
+        <span class="section-index">04 / INSPECT AND CORRECT</span>
+        <h2 id="principle-title">The record can<br>be challenged.</h2>
+        <div class="principle-grid">
+          <article><span class="principle-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 32 32" focusable="false"><rect x="5" y="4" width="18" height="23" rx="2"/><path d="M9 10h10M9 15h7M9 20h4m10-4 5 5-5 5"/></svg></span><h3>Inspect the origin</h3><p>Results include a source ID, reference when present, event and capture times, and caller-supplied attribution.</p></article>
+          <article><span class="principle-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 32 32" focusable="false"><path d="M25 14a10 10 0 1 0 1 6M25 5v9h-9"/><path d="m12 18 3 3 6-7"/></svg></span><h3>Keep the correction</h3><p>Superseded and retracted notes remain inspectable. Current search prefers active records.</p></article>
+          <article><span class="principle-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 32 32" focusable="false"><circle cx="14" cy="14" r="9"/><path d="M10 14h8m2.5 6.5L28 28"/></svg></span><h3>Leave gaps visible</h3><p>When search finds no support, the retriever can say so. It cannot certify that a retrieved claim is true.</p></article>
+        </div>
+        <p class="principle-footnote">Current status: local alpha. Search is lexical and can miss paraphrases. Evaluation on real engineering tasks is still ahead.</p>
+      </section>
+
+      <section class="start-section" aria-labelledby="start-title">
+        <div class="section-wrap start-grid">
+          <div><span class="section-index">05 / GET STARTED</span><h2 id="start-title">Run it locally.</h2><p>Clone the repository, add one decision, and query it from the CLI. The same local database is available to MCP clients.</p><a class="button button-primary" href="https://github.com/vladmuresan03/engineering-memory#get-started">Installation and MCP setup <svg class="icon" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 15 15 5M7 5h8v8"/></svg></a></div>
+          <div class="command-card"><div class="command-top"><span>TERMINAL</span><span>LOCAL MVP</span></div><pre><code><span class="command-comment"># Install the local prototype</span>
+git clone https://github.com/vladmuresan03/engineering-memory.git
+cd engineering-memory
+python3.13 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[mcp]'
+
+<span class="command-comment"># Store a decision with its reason</span>
+engineering-memory add Decision \
+  "Use SQLite for local memory" \
+  --rationale "One file keeps setup simple"
+
+<span class="command-comment"># Give an agent context</span>
+engineering-memory context "Why SQLite?"</code></pre><div class="command-bottom">MIT LICENSE <span>·</span> PYTHON 3.11+</div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-wrap"><div class="footer-brand"><span class="brand-mark" aria-hidden="true">em<span class="brand-dot"></span></span><span>Engineering Memory</span></div><p>A local record of engineering decisions, attempts, and outcomes.</p><div class="footer-links"><a href="https://github.com/vladmuresan03/engineering-memory">GitHub</a><a href="https://github.com/vladmuresan03/engineering-memory/blob/main/docs/architecture.md">Architecture</a><a href="https://github.com/vladmuresan03/engineering-memory/blob/main/LICENSE">MIT license</a></div><small>© 2026 Engineering Memory</small></footer>
+  </div>
+</body>
+</html>
