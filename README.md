@@ -4,7 +4,7 @@
 
 Engineering Memory is an early, open-source local database for recording what happened, what changed, what was decided, why, what was tried, and what resulted. You can enter a note directly or import source material. GitHub is an optional connector; the core works without a repository or an external account.
 
-`engineeringmemory.dev` is the working domain. This repository contains the first local prototype.
+The [project site](https://engineeringmemory.dev) introduces the idea; this repository contains the first local prototype.
 
 ## Why a separate memory?
 
@@ -91,6 +91,7 @@ The included [six synthetic retrieval cases](evals/README.md) exercise links, co
 - [Architecture and data model](docs/architecture.md)
 - [MVP and evaluation plan](docs/mvp-plan.md)
 - [Contributing](CONTRIBUTING.md)
+- [Landing page source and deployment](web/README.md)
 
 ## License
 
